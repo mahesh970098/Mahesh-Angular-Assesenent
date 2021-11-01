@@ -32,6 +32,7 @@ export class LoginComponent implements OnInit {
      {
        localStorage.clear;
        this.router.navigate(['/home']);
+       localStorage.clear;
      }
 
 
