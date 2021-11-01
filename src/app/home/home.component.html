@@ -1,0 +1,81 @@
+<mat-toolbar navbar-expand-lg class="mat-elevation-z8">
+    <button mat-icon-button *ngIf="sidenav.mode === 'side'" (click)="sidenav.toggle()">
+        <mat-icon *ngIf="!sidenav.opened">
+            menu
+        </mat-icon>
+        <mat-icon *ngIf="sidenav.opened">
+            close
+        </mat-icon>
+    </button> &nbsp;
+
+    Menu
+
+
+
+
+
+
+    <button type="button" class="btn2  btn-outline-danger" (click)="SignOut()" >LOG OUT</button>
+
+</mat-toolbar>
+
+<mat-sidenav-container>
+    <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+
+      DASHBOARD
+        <mat-divider></mat-divider>
+        <a [routerLink]="['/home']">
+
+        <button mat-button class="menu-button active">
+            <mat-icon>home</mat-icon>
+            <span>Home</span>
+        </button></a>
+
+
+
+        <a [routerLink]="['/about']">
+
+        <button mat-button class="menu-button">
+            <mat-icon>info</mat-icon>
+            <span>About</span>
+        </button></a>
+
+        <mat-divider></mat-divider>
+
+        <button mat-button class="menu-button">
+            <mat-icon>help</mat-icon>
+            <span>Help</span>
+        </button>
+
+    </mat-sidenav>
+    <mat-sidenav-content>
+
+
+          <div class="container">
+
+
+
+       <app-dashboard></app-dashboard>
+       <br>
+       <hr>
+       <br>
+
+
+
+
+
+          </div>
+          <br>
+          <br>
+
+
+
+
+    </mat-sidenav-content>
+
+
+
+</mat-sidenav-container>
+
+
+

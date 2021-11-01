@@ -1,0 +1,89 @@
+.imageback{
+  background-image: url("../../assets/imageassement.jpg");
+  background-color: #838ace;
+  height: 1000px;
+  width:100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+
+}
+.card-header{
+  border-radius: 20px;
+  background-color: white;
+}
+
+.btn{
+  margin-left:210px;
+  display:block;
+  padding: 10px;
+  width: 200px;
+  height: 50px;
+  cursor: pointer;
+  border-radius: 50px;
+  text-align: center;
+}
+
+.forms{
+  border-radius: 100px;
+  padding:50px;
+  height:auto;
+  width: 65%;
+  margin-left:120px;
+  margin-top:150px;
+  box-shadow: 0 0 15px rgba(0, 21, 255, 0.544);
+  border-radius: 15px;
+
+}
+
+.textreg:hover{
+
+  text-decoration: none;
+
+}
+
+
+@media screen and (max-width: 1008px)and (min-width:10px) {
+
+
+  .forms{
+
+ width: auto;
+ height:
+ auto;
+ margin-right: 100px;
+
+box-sizing: none;
+margin-left: auto;
+box-shadow: none;
+
+  }
+  label{
+    margin-left: auto;
+  }
+
+  .btn{
+
+margin-left: auto;
+margin-right: auto;
+
+  }
+
+  .form-control{
+    width: auto;
+    text-align: left;
+    margin-right: 100px;
+    margin-left: auto;
+
+
+  }
+  .imageback{
+    width: 100%;
+
+  }
+
+
+
+
+}

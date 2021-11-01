@@ -1,0 +1,239 @@
+
+
+<mat-drawer-container>
+
+  <!-- <div class="about1">
+    <h1 style="margin-top: 10px;">Home</h1>
+
+    </div> -->
+<div  class=" container-fluid imageback">
+
+
+
+  <div  class="css-typing">
+    <p style="color: chocolate; text-align: center;"><b>
+      ZestIot</b>
+    </p>
+    <p>
+      We are a bunch of young, hungry minds with a mix of grey hair industry veterans
+    </p>
+    <p>
+      who take pride in solving customer problems.
+    </p>
+  </div>
+
+
+
+</div>
+
+</mat-drawer-container>
+
+<h2 style="text-align: center; margin-top: 50px; color:rgb(70, 11, 172);font-size: xx-large;">OUR CAPABILITIES</h2>
+
+<p>Our team has built deep expertise on IoT, Camera & Machine Vision, Artificial Intelligence, Big Data & Analytics, Cloud & Edge Compute, Mobile & Web
+  Applications with industry focused solutions for Aviation, Ports, Oil & Gas, Manufacturing. Some of the solutions include a) Smart Airport
+   to deliver additional flights with same infrastructure & resource utilization uptick by 10% b) Oil & Gas – 99.8% AI driven solution to automate Cylinder
+   count or defect leakage detection c) Steel Industry –
+  heat cycle productivity improvement leading to 10% uptick in revenue or real time product quality inspection leading to significant loss reduction​</p>
+
+  <br>
+  <br>
+
+
+
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-6">
+
+
+        <p  class="text">Founded in 2013 by three determined minds, Grepthor family has fully grown up to 700+ clients all over in India. Being a young IT body, Grepthor has clients in India, US. We are linked to around 20 to 25 different industries in providing uniqueness to their brand and work.  As per our tagline, we tend to exactly believe having a novel approach. We are serving businesses in extensive web applications, digital marketing & Mobile App Development. This can involve developing new applications, validate your existing applications for the web, migrating from legacy applications, optimizing and customizing your existing applications and additional.</p>
+
+
+
+      </div>
+      <div class="col-md-6">
+
+        <img class="imageforside" src="../../assets/office02.jpg">
+
+      </div>
+  </div>
+
+
+
+
+<div class="container-fluid  ">
+
+  <h3 style="text-align: center; margin-top: 50px; color:rgb(70, 11, 172);font-size: xx-large;">Employee Details</h3>
+  <h4 style=" margin-top: 50px;">You can add Employee details by clicking add employee details </h4>
+
+    <button class="butn" onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><i
+            class="fas fa-user-plus"></i>&nbsp;&nbsp;Add employee</button>
+            <p>You can enter details on table after enter click add it will added on list
+
+            </p>
+    <mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+
+
+
+        <ng-container matColumnDef="actions">
+            <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+            <mat-cell *matCellDef="let row">
+                <button mat-icon-button>
+                    <mat-icon><span class="material-icons">
+                            edit
+                        </span></mat-icon>
+                </button>
+                <button mat-icon-button color="warn" (click)="delete(row)">
+                    <mat-icon>delete_outline</mat-icon>
+                </button>
+            </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="emplid">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Employee Id
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element ;index as i">EMP{{i+1}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.EmpName}} </mat-cell>
+        </ng-container>
+
+
+        <ng-container matColumnDef="mobile">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Mobile </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.EmpMobile}} </mat-cell>
+        </ng-container>
+
+
+        <ng-container matColumnDef="email">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Email </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.Empmail}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="gender">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Gender </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.EmpGender}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="location">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Location </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.EmpLocation}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="salary">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Salary </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.EmpSalary}} </mat-cell>
+        </ng-container>
+
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+
+
+</div>
+
+
+
+<div id="id01" class="modal" >
+
+
+
+    <form class="regform modal-content animate" #regform="ngForm" (ngSubmit)="regform.valid && addmember(regform)">
+
+        <div class="imgcontainer">
+
+            <span onclick="document.getElementById('id01').style.display='none'" class="close"
+                title="Close Modal">&times;</span>
+            <h3 style="color: black;"><i class="fas fa-users"></i>Add new employee</h3>
+        </div>
+
+        <label>Name</label>
+        <input type="text" class="form-control" placeholder="please Enter name..." name="firstname" #firstname="ngModel"
+            [(ngModel)]="empdetail.EmpName" required>
+        <span
+            *ngIf="(firstname.errors?.required  && firstname.touched) || (firstname.errors?.required && regform.submitted)"
+            style="color: red;">please enter Name</span>
+
+
+
+
+
+        <br>
+
+        <div class="form-group">
+
+            <label>email</label>
+            <input type="text" class="form-control" placeholder="Please Enter a valid email" name="email"
+                #email="ngModel" [(ngModel)]="empdetail.Empmail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                required>
+            <span style="color: red;"
+                *ngIf="(email.errors?.required && email.touched) || (email.errors?.required && regform.submitted)">Email
+                is required</span>
+            <span style="color: red;"
+                *ngIf="(email.errors?.pattern && email.touched) || (email.errors?.pattern && regform.submitted)">
+                Enter a valid email</span>
+        </div>
+
+        <div class="form-group">
+
+            <label>Mobile number</label>
+            <input type="text" class="form-control" placeholder="Enter Mobile number" name="mobile" #mobile="ngModel"
+                [(ngModel)]="empdetail.EmpMobile" pattern="^((\\+91-?)|0)?[0-9]{10}$" required>
+            <span style="color: red;"
+                *ngIf="(mobile.errors?.required && mobile.touched) || (mobile.errors?.required && regform.submitted)">Mobile
+                number is required</span>
+            <span style="color: red;"
+                *ngIf="(mobile.errors?.pattern && mobile.touched) || (mobile.errors?.pattern && regform.submitted)">Please
+                Enter 10 Digits Mobile number</span>
+        </div>
+
+
+
+
+        <div class="form-group">
+          <div class="namesg">
+            <input type="radio" name="gender" #gender="ngModel" value="Male" [(ngModel)]="empdetail.EmpGender" required>
+            Male &nbsp;&nbsp;
+
+            <input type="radio" name="gender" #gender="ngModel" value="Female" [(ngModel)]="empdetail.EmpGender"
+                required>
+            Female
+            <br>
+            <span style="color: red;" *ngIf="(gender.invalid && regform.submitted)">Gender is required</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+
+            <label>Enter Salary</label>
+            <input type="text" class="form-control" placeholder="Enter Salary" name="salary" #salary="ngModel"
+                [(ngModel)]="empdetail.EmpSalary" required>
+            <span style="color: red;"
+                *ngIf="(mobile.errors?.required && mobile.touched) || (mobile.errors?.required && regform.submitted)">please
+                enter salary</span>
+
+        </div>
+
+
+
+        <div class="form-group inpt">
+            <input class="inpt" type="submit" class="btn btn-primary" value="Add Employee">
+
+
+        </div>
+        <br>
+    </form>
+
+
+
+
+</div>
+
+
+
+

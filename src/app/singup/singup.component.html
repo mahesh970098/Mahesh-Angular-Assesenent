@@ -1,0 +1,76 @@
+<div class="container-fliud imageback">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="forms">
+
+        <form name="addform" #addform="ngForm" (ngSubmit)= "addform.form.valid && addmessage (addform)">
+
+          <div>
+            <label> First Name</label>
+            <input type="text" class="form-control " placeholder="Enter your first name" name="firstname" #firstname="ngModel" [(ngModel)]="sinup.firstname" required>
+            <span *ngIf= "(firstname.errors?.required && firstname.touched)||(firstname.errors?.required && addform.submitted)" style="color: red;">please enter first name</span>
+          </div>
+          <div>
+            <label> Last Name</label>
+            <input type="text" class="form-control " placeholder="Enter your last name" name="Lastname" #Lastname="ngModel" [(ngModel)]="sinup.lastname"    required>
+            <span *ngIf= "(Lastname.errors?.required && Lastname.touched)||(Lastname.errors?.required && addform.submitted)" style="color: red;">please enter Last name</span>
+          </div>
+          <div>
+
+               <label class= "form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="gender" value="option1">
+                <span class="form-check-label "> Male </span>
+            </label>
+
+            <label class= "form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="gender" value="option1">
+              <span class="form-check-label "> Female </span>
+          </label>
+
+          </div>
+
+
+          <div>
+            <label> Email: </label>
+            <input type="text" class="form-control " placeholder="Enter your Gmail" name="gmail" #gmail="ngModel" [(ngModel)]="sinup.gmail"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
+            <span *ngIf= "(gmail.errors?.required && gmail.touched)||(gmail.errors?.required && addform.submitted)" style="color: red;">please enter gmail</span>
+            <span *ngIf= "(gmail.errors?.pattern && gmail.touched)||(gmail.errors?.pattern && addform.submitted)" style="color:red">must be valid</span>
+          </div>
+
+          <div>
+            <label>phone no:</label>
+            <input type="text" class="form-control" placeholder="enter phoneno:" name="phoneno" #phoneno="ngModel" [(ngModel)]="sinup.phoneno" pattern="^((\\+91-?)|0)?[0-9]{10}$" required>
+            <span *ngIf= "(phoneno.errors?.required && phoneno.touched)||(phoneno.errors?.required && addform.submitted)" style="color: red;">please enter phone no:</span>
+            <span *ngIf= "(phoneno.errors?.pattern && phoneno.touched)||(phoneno.errors?.pattern && addform.submitted)" style="color: red;">must be 10digits:</span>
+          </div>
+          <div class="form-group">
+            <label>password:</label>
+            <input type="text" class="form-control" placeholder=" enter your password" name="password" #password="ngModel" [(ngModel)]="sinup.password" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}" required>
+            <span *ngIf= "(password.errors?.required && password.touched)||(password.errors?.required && addform.submitted)" style="color: red;">required password</span>
+            <span *ngIf= "(password.errors?.pattern && password.touched)||(password.errors?.pattern && addform.submitted)" style="color: red;">uppercase, lowercase ,special character :</span>
+          </div>
+          <div class="form-group">
+            <label>conform password:</label>
+            <input type="password"  class="form-control" placeholder="enter conform password" name="conformpassword" #conformpassword="ngModel" [(ngModel)]="sinup.conformpassword"  pattern="{{sinup.password}}" required>
+            <span *ngIf= "(conformpassword.errors?.required && conformpassword.touched)||(conformpassword.errors?.required && addform.submitted)" style="color: red;">required conform password</span>
+            <span *ngIf= "(conformpassword.errors?.pattern && conformpassword.touched)||(conformpassword.errors?.pattern && addform.submitted)" style="color: red;">password must  match </span>
+          </div><br>
+          <div>
+
+            <input type="submit" class="btn btn-primary">
+            <br>
+            <a class="textreg" [routerLink]="['/login']">
+              <button type="submit" class="btn btn-danger">Login
+              </button></a>
+          </div>
+
+
+
+
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
