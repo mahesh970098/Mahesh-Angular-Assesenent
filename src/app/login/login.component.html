@@ -21,9 +21,9 @@
                 <input type="password" class="form-control" placeholder="Password" name="password" #password="ngModel" [(ngModel)]="feed.password" required>
                 <span *ngIf= "(password.errors?. required && password.touched ) || (password.errors?.required && addform.submitted)" style="color: red;">please enter correct password</span>
               </div>
-              <a [routerLink]="['/home']">
 
-             <button type="submit" class="btn btn-black" [disabled]="!addform.valid">Login</button></a>
+
+             <button type="submit" class="btn btn-black" value="login">Login</button>
 
 
 

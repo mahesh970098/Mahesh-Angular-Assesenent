@@ -1,6 +1,7 @@
 import { NgForm } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { feedback } from './login-model';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -11,7 +12,7 @@ export class LoginComponent implements OnInit {
   feed :feedback;
   sumbitted =false;
 
-  constructor() {
+  constructor(private router:Router) {
 
     this.feed=new feedback();
    }
@@ -21,7 +22,16 @@ export class LoginComponent implements OnInit {
      }
 
      addmessage(form:NgForm){
-       alert("added")
+
+       localStorage.clear;
+       this.router.navigate(['/home']);
+     }
+
+
+     login()
+     {
+       localStorage.clear;
+       this.router.navigate(['/home']);
      }
 
 
